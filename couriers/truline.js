@@ -28,6 +28,7 @@ module.exports = function(config){
                 case 'delivered':
                     hist.status_code = 'D';
                     break;
+                case 'not received in hub':
                 case 'failed delivery':
                     hist.status_code = 'X';
                     break;
