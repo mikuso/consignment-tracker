@@ -1,0 +1,21 @@
+{
+    "name": "consignment-tracker",
+    "version": "0.0.1",
+    "description": "A unified consignment tracker",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Gareth Hughes",
+    "license": "ISC",
+    "dependencies": {
+        "bluebird": "^3.5.0",
+        "cheerio": "^1.0.0-rc.2",
+        "lodash": "^4.17.4",
+        "moment": "^2.18.1",
+        "promise-queue": "^2.2.3",
+        "request": "^2.81.0",
+        "xml2js": "^0.4.19"
+    }
+}
