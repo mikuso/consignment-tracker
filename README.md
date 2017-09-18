@@ -1,3 +1,5 @@
+This is a NodeJS module to simplify the process of tracking consignments. Tracking numbers are magically resolved, and results will always be in a uniform format. Currently supports UPS, Yodel & Truline in the United Kingdom.
+
 ## Install
 
 `npm i consignment-tracker`
@@ -23,7 +25,7 @@ let results = await track([
 ]);
 ```
 
-# Usage
+## Usage
 
 Track a single consignment
 ```js
