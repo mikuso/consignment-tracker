@@ -1,6 +1,6 @@
 {
     "name": "consignment-tracker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A unified consignment tracker",
     "main": "index.js",
     "scripts": {
@@ -18,8 +18,8 @@
         "request": "^2.81.0",
         "xml2js": "^0.4.19"
     },
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/mikuso/consignment-tracker.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mikuso/consignment-tracker.git"
     }
 }
