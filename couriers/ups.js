@@ -47,7 +47,7 @@ module.exports = function(config) {
     async function track(trackingNumber, trackOptions, cache = {}) {
         if (Array.isArray(trackingNumber)) {
             let multicache = {};
-            return Promise.all(trackingNumber.map(num => track(num, trackOptions, multicache).catch(error => ({ref: num, error}))));
+            return Promise.all(trackingNumber.map(num => track(num, trackOptions, multicache).catch(error => ({tracking_ref: num, error}))));
         }
 
         return trackingQueue.add(async () => {

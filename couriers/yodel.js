@@ -78,7 +78,7 @@ module.exports = function(config){
 
     async function track(trackingNumber, trackOptions) {
         if (Array.isArray(trackingNumber)) {
-            return Promise.all(trackingNumber.map(num => track(num, trackOptions).catch(error => ({ref: num, error}))));
+            return Promise.all(trackingNumber.map(num => track(num, trackOptions).catch(error => ({tracking_ref: num, error}))));
         }
 
         return trackingQueue.add(async () => {

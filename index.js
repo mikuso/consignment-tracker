@@ -23,7 +23,7 @@ module.exports = function(config) {
                 }
             }
             return {
-                ref,
+                tracking_ref: ref,
                 error: Error(`Couldn't identify tracking number: ${ref}`)
             };
         });
