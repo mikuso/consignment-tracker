@@ -17,5 +17,9 @@
         "promise-queue": "^2.2.3",
         "request": "^2.81.0",
         "xml2js": "^0.4.19"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/mikuso/consignment-tracker.git"
     }
 }
