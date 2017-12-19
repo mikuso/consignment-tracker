@@ -21,6 +21,7 @@ const codemap = {
     "EC": "I",
     "ED": "I",
     "ET": "I",
+    "EM": "I",
     "G": "I",
     "HO": "I",
     "HR": "I",
