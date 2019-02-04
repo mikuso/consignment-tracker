@@ -78,6 +78,6 @@ module.exports = function(config){
 
     return {
         track: track,
-        pattern: /^04\d{15}$/
+        pattern: /^0[4-9]\d{15}$/
     }
 };
