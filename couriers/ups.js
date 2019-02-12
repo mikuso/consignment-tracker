@@ -57,7 +57,10 @@ module.exports = function(config) {
 
             let raw = await trackRaw(trackingNumber, trackOptions.history ? '1' : '0');
 
-            let shipTo = raw.Shipment.ShipmentAddress.find(a => _.get(a, 'Type.Code') == '02');
+            let shipTo = raw.Shipment.ShipmentAddress;
+            if (Array.isArray(shipTo)) {
+                shipTo = shipTo.find(a => _.get(a, 'Type.Code') == '02');
+            }
             let packages = toArray(_.get(raw, 'Shipment.Package', []));
 
             for (let p of packages) {
