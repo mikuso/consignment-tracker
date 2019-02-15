@@ -81,7 +81,7 @@ module.exports = function({concurrency = 2, account, cacheSize = 1000}){
         let rb = new TrackingResultBuilder({
             courier: "truline",
             tracking_ref: refs.trackingNumber,
-            consignment_ref: refs.despatchNumber,
+            consignment_ref: refs.refNum,
             po_number: refs.purchaseOrderNumber
         });
 
@@ -124,7 +124,16 @@ module.exports = function({concurrency = 2, account, cacheSize = 1000}){
                 return Promise.all(trackingNumber.map(num => track(num, trackOptions).catch(error => ({tracking_ref: num, error}))));
             }
 
-            let url = await trackAndTrace(trackOptions.account || account, trackingNumber);
+            let refAcct = account;
+            let refNum = trackingNumber;
+
+            let trackNoSplit = trackingNumber.split('/');
+            if (trackNoSplit.length === 2) {
+                refAcct = trackNoSplit[0];
+                refNum = trackNoSplit[1];
+            }
+
+            let url = await trackAndTrace(refAcct, refNum);
             let res = await request(url);
 
             if (res.statusCode !== 200) {
@@ -143,12 +152,12 @@ module.exports = function({concurrency = 2, account, cacheSize = 1000}){
                 });
             }
 
-            return buildResult(events, {trackingNumber}, trackOptions.history);
+            return buildResult(events, {trackingNumber, refAcct, refNum}, trackOptions.history);
         });
     }
 
     return {
         track: track,
-        pattern: /^0[4-9]\d{15}$/
+        pattern: /^(\d{5}\/)?0[4-9]\d{15}$/
     }
 };

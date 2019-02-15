@@ -12,6 +12,9 @@ const config = {
         user: "xxxx",  // UPS username
         pass: "xxxx",  // UPS password
         access: "xxxx" // UPS Access License Number
+    },
+    truline: { // Truline config (require for Truline tracking only)
+        account: "00000"
     }
 };
 const track = require('consignment-tracker')(config);
