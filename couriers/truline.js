@@ -96,13 +96,14 @@ module.exports = function({concurrency = 2, account, cacheSize = 1000}){
                 case 'delivered':
                     hist.status_code = 'D';
                     break;
+                case 'out of time':
                 case 'not received in hub':
                 case 'failed delivery':
                 case 'in transit to hub\\awaiting scan':
                     hist.status_code = 'X';
                     break;
                 default:
-                    hist.status_code = 'I';
+                    hist.status_code = (event.status === 'Exception') ? 'X' : 'I';
                     break;
             }
 
